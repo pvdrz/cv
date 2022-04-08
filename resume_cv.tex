@@ -20,15 +20,12 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
 
-\documentclass[11pt, a4paper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, letterpaper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
 
 \usepackage{multicol}
-\usepackage{hyperref}
-
 \geometry{left=2cm, top=2cm, right=2cm, bottom=2cm, footskip=2cm} % Configure page margins with geometry
 
 \fontdir[fonts/] % Specify the location of the included fonts
@@ -46,31 +43,18 @@
 
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad} % If you would like to change the social information separator from a pipe (|) to something else
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
-%	Comment any of the lines below if they are not required
-%----------------------------------------------------------------------------------------
 
 \name{Christian}{Poveda Ruiz}
-%% \address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
 
 \email{contact@pvdrz.com}
 \github{pvdrz}
-%\skype{skypeid}
-%\stackoverflow{SOid}{SOname}
-% \twitter{twitter_name}
-%\linkedin{linkedin name}
-%\reddit{reddit account}
-%\xing{xing name}
-%\extrainfo{test} % Other text you want to include on this line
 
 \position{Computer Scientist{\enskip\cdotp\enskip}Physicist} % Your expertise/fields
-%% \quote{``Make the change that you want to see in the world."} % A quote or statement
 
-\makecvfooter{\today}{Christian Poveda Ruiz~~~·~~~Résumé}{\thepage} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
-
-%----------------------------------------------------------------------------------------
-
+%-------------------------------------------------------------------------------
+\overfullrule=5pt
 \begin{document}
 
 \makecvheader % Print the header
@@ -82,12 +66,13 @@
 
 \input{cv-sections/education.tex}
 \input{cv-sections/experience.tex}
-\input{cv-sections/publications.tex}
 \newpage
+\input{cv-sections/publications.tex}
 \input{cv-sections/relevant_courses.tex}
 \input{cv-sections/teaching.tex}
 \input{cv-sections/events.tex}
 \input{cv-sections/programming.tex}
+\input{cv-sections/languages.tex}
 %----------------------------------------------------------------------------------------
 
 \end{document}

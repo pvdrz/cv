@@ -568,7 +568,7 @@
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{0.98\textwidth}{@{\extracolsep{\fill}} L{0.98\textwidth - 4.5cm} R{4.5cm}}
+  \begin{tabular*}{0.98\textwidth}{@{\extracolsep{\fill}} L{0.98\textwidth - 5.5cm} R{5.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
@@ -599,6 +599,24 @@
       {}
       {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
   \end{tabular*}
+}
+
+% Define an environment for cvteaching
+\newenvironment{cvteachings}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{0.98\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{0.98\textwidth - 6.0cm} R{4.0cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(honor, award or something else)
+% Usage: \cvteaching{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cvteaching}[4]{%
+  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
 }
 
 % Define an environment for cvhonor
