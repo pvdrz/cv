@@ -555,6 +555,28 @@
   \vspace{2mm}
 }
 
+% Define an environment for cvpublication
+\newenvironment{cvpublications}{%
+  \vspace{\acvSectionContentTopSkip}
+  \begin{center}
+}{%
+  \end{center}
+}
+% Define an entry of cv information
+% Usage: \cvpublication{<position>}{<title>}{<location>}{<date>}{<description>}
+\newcommand*{\cvpublication}[5]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{0.98\textwidth}{@{\extracolsep{\fill}} L{0.98\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    \multicolumn{2}{L{0.98\textwidth}}{\descriptionstyle{#5}}
+  \end{tabular*}%
+}
+
 % Define an environment for cventry
 \newenvironment{cventries}{%
   \vspace{\acvSectionContentTopSkip}
