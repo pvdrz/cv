@@ -1,23 +1,20 @@
-on: [push]
-
+name: 'Build LaTex Document'
+on:
+  push:
 jobs:
-  latex-job:
+  build:
     runs-on: ubuntu-latest
-    name: A job to Compile Latex file
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Compilation
-      uses: vinay0410/tectonic-action@master
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tex_path: 'resume_cv.tex'
-    - run: mkdir pdf
-    - run: mv 'resume_cv.pdf' 'pdf/resume_cv.pdf'
-    - name: Deploy
-      uses: s0/git-publish-subdir-action@develop
-      env:
-        REPO: self
-        BRANCH: pdf
-        FOLDER: pdf
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: wtfjoke/setup-tectonic@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Tectonic
+        run: tectonic resume_cv.tex
+      - name: Upload pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: resume_cv
+          path: resume_cv.pdf
